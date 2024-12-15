@@ -5,3 +5,4 @@ openssl req -new -key private.key -out request.csr
 openssl req -x509 -sha256 -days 365 -key private.key -in request.csr -out certificate.crt
 openssl req -x509 -new -nodes -key private.key -sha256 -days 1024 -out ca.crt
 openssl x509 -req -in request.csr -CA ca.crt -CAkey private.key -CAcreateserial -out signed_certificate.crt -days 365 -sha256
+git repository:https://github.com/amnakhan19/infosec2.git
