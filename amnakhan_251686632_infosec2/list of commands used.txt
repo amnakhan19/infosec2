@@ -1,0 +1,7 @@
+list of commands used
+openssl genrsa -out private.key 2048
+openssl rsa -in private.key -pubout -out public.key
+openssl req -new -key private.key -out request.csr
+openssl req -x509 -sha256 -days 365 -key private.key -in request.csr -out certificate.crt
+openssl req -x509 -new -nodes -key private.key -sha256 -days 1024 -out ca.crt
+openssl x509 -req -in request.csr -CA ca.crt -CAkey private.key -CAcreateserial -out signed_certificate.crt -days 365 -sha256
